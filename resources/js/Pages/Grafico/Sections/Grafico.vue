@@ -1,18 +1,3 @@
-<template>
-  <div class="relative sm:flex sm:justify-center sm:items-center sm:flex-col min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-      <div class="max-w-7xl mx-auto p-6 lg:p-8">
-          <canvas v-if="chartType === 'line'" ref="chartCanvasLine" width="500"></canvas>
-          <canvas v-else-if="chartType === 'bar'" ref="chartCanvasBar" width="500"></canvas>
-      </div>
-
-      <div class="sm:flex sm:justify-center sm:item-center w-full lg:w-1/2">
-        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-2" @click="showChart('line')">Mostrar Gráfico de temperatura</button>
-      <button  type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" @click="showChart('bar')">Mostrar Gráfico de precipitação</button>
-
-      </div>
-  </div>
-</template>
-
 <script setup>
 import { ref, onMounted, watchEffect } from 'vue';
 import Chart from 'chart.js/auto';
@@ -24,7 +9,7 @@ const { dados } = defineProps({
 
 const chartCanvasLine = ref(null);
 const chartCanvasBar = ref(null);
-const chartType = ref('');
+const chartType = ref('line');
 
 function showChart(type) {
   chartType.value = type;
@@ -65,3 +50,18 @@ function handleClick(e, chart) {
   console.log('Clicked at:', { x: dataX, y: dataY });
 }
 </script>
+
+<template>
+  <div class="relative sm:flex sm:justify-center sm:items-center sm:flex-col min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
+      <div class="max-w-7xl mx-auto p-6 lg:p-8">
+          <canvas v-if="chartType === 'line'" ref="chartCanvasLine" width="500"></canvas>
+          <canvas v-else-if="chartType === 'bar'" ref="chartCanvasBar" width="500"></canvas>
+      </div>
+
+      <div class="sm:flex sm:justify-center sm:item-center w-full lg:w-1/2">
+        <button type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded m-2" @click="showChart('line')">Mostrar Gráfico de temperatura</button>
+      <button  type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2" @click="showChart('bar')">Mostrar Gráfico de precipitação</button>
+
+      </div>
+  </div>
+</template>
