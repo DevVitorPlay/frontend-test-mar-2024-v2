@@ -72,6 +72,7 @@ defineProps({
                                     <rect x="77.856" y="184.96" style="fill:#999999;" width="18.688" height="30.208" />
                                     <rect x="140.136" y="135.672" style="fill:#999999;" width="18.688"
                                         height="79.504" />
+                                        
                                 </g>
                                 <rect x="171.28" y="84.568" style="fill:#E21B1B;" width="18.688" height="130.608" />
                                 <rect x="202.416" y="110.92" style="fill:#999999;" width="18.688" height="104.24" />
